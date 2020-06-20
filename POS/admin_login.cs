@@ -37,6 +37,9 @@ namespace POS
             if (dt.Rows[0][0].ToString() == "1")
             {
                 MessageBox.Show("Welcome Admin you have successfully logged in!");
+                this.Hide();
+                Dashboard dash = new Dashboard();
+                dash.Show();
             }
             else
             {
