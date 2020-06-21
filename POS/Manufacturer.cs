@@ -51,7 +51,14 @@ namespace POS
 
         private void manufacturer_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex != -1) //means if some records are present
+            {
+                DataGridViewRow dgvRow = manufacturer_dgv.Rows[e.RowIndex];  //we have selected the current row
+                id_tb.Text = dgvRow.Cells[0].Value.ToString();
+                name_tb.Text = dgvRow.Cells[1].Value.ToString();
+                address_tb.Text = dgvRow.Cells[2].Value.ToString();
+                product_type_tb.Text = dgvRow.Cells[3].Value.ToString();
+            }
         }
 
         private void search_tb_TextChanged(object sender, EventArgs e)
@@ -87,14 +94,31 @@ namespace POS
 
         private void update_btn_Click(object sender, EventArgs e)
         {
+            string id = id_tb.Text;
+            string name = name_tb.Text;
+            string address = address_tb.Text;
+            string type = product_type_tb.Text;
 
+            SqlCommand cmd = new SqlCommand("update manufacturer set name = @n, address= @a, product_type= @p where manufacturer_id=@i", con);
+            con.Open();
+
+            cmd.Parameters.AddWithValue("@i", id);
+            cmd.Parameters.AddWithValue("@n", name);
+            cmd.Parameters.AddWithValue("@a", address);
+            cmd.Parameters.AddWithValue("@p", type);
+
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Record Updated");
+            con.Close();
+            populateData();
+        
         }
 
         private void del_btn_Click(object sender, EventArgs e)
         {
             con.Open();
             string id = id_tb.Text;
-            SqlCommand cmd = new SqlCommand("delete from manufacturer where manufacurer_id= @n", con);
+            SqlCommand cmd = new SqlCommand("delete from manufacturer where manufacturer_id= @n", con);
             cmd.Parameters.AddWithValue("@n", id);
             cmd.ExecuteNonQuery();
             MessageBox.Show("Record Deleted");
