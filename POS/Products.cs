@@ -47,15 +47,12 @@ namespace POS
             string price = Price_tb.Text; 
             string units = unit_tb.Text;
 
-            int price1 = Int16.Parse(price);
-            int units1= Int16.Parse(units);
-
             con.Open();
             SqlCommand cmd = new SqlCommand("insert into Product(pr_name,price,units) values(@a, @b, @c)", con);
 
             cmd.Parameters.AddWithValue("@a", name);
-            cmd.Parameters.AddWithValue("@b", price1);
-            cmd.Parameters.AddWithValue("@c", units1);
+            cmd.Parameters.AddWithValue("@b", price);
+            cmd.Parameters.AddWithValue("@c", units);
  
             cmd.ExecuteNonQuery();
             MessageBox.Show("You Record have been successfuly Saved.");
@@ -124,6 +121,20 @@ namespace POS
         private void update_btn_Click(object sender, EventArgs e)
         {
             updateRecord();
+        }
+
+        private void home_pic_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Dashboard dash = new Dashboard();
+            dash.Show();
+        }
+
+        private void logout_lbl_Click(object sender, EventArgs e)
+        {
+            admin_login home = new admin_login();
+            home.Show();
+            this.Hide();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.products_lbl = new System.Windows.Forms.Label();
             this.add_new_lbl = new System.Windows.Forms.Label();
             this.products_dgv = new System.Windows.Forms.DataGridView();
@@ -44,7 +45,10 @@
             this.update_btn = new System.Windows.Forms.Button();
             this.id_lbl = new System.Windows.Forms.Label();
             this.id_tb = new System.Windows.Forms.TextBox();
+            this.home_pic = new System.Windows.Forms.PictureBox();
+            this.logout_lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.products_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // products_lbl
@@ -218,12 +222,38 @@
             this.id_tb.Size = new System.Drawing.Size(187, 20);
             this.id_tb.TabIndex = 44;
             // 
+            // home_pic
+            // 
+            this.home_pic.BackColor = System.Drawing.Color.White;
+            this.home_pic.Image = ((System.Drawing.Image)(resources.GetObject("home_pic.Image")));
+            this.home_pic.Location = new System.Drawing.Point(17, 9);
+            this.home_pic.Name = "home_pic";
+            this.home_pic.Size = new System.Drawing.Size(46, 46);
+            this.home_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.home_pic.TabIndex = 46;
+            this.home_pic.TabStop = false;
+            this.home_pic.Click += new System.EventHandler(this.home_pic_Click);
+            // 
+            // logout_lbl
+            // 
+            this.logout_lbl.AutoSize = true;
+            this.logout_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.logout_lbl.Location = new System.Drawing.Point(722, 9);
+            this.logout_lbl.Name = "logout_lbl";
+            this.logout_lbl.Size = new System.Drawing.Size(56, 16);
+            this.logout_lbl.TabIndex = 47;
+            this.logout_lbl.Text = "Log Out";
+            this.logout_lbl.Click += new System.EventHandler(this.logout_lbl_Click);
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.logout_lbl);
+            this.Controls.Add(this.home_pic);
             this.Controls.Add(this.id_lbl);
             this.Controls.Add(this.id_tb);
             this.Controls.Add(this.update_btn);
@@ -243,6 +273,7 @@
             this.Name = "Products";
             this.Text = "Products";
             ((System.ComponentModel.ISupportInitialize)(this.products_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.home_pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,5 +297,7 @@
         private System.Windows.Forms.Button update_btn;
         private System.Windows.Forms.Label id_lbl;
         private System.Windows.Forms.TextBox id_tb;
+        private System.Windows.Forms.PictureBox home_pic;
+        private System.Windows.Forms.Label logout_lbl;
     }
 }

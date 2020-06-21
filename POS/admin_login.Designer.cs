@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(admin_login));
             this.intro_lbl = new System.Windows.Forms.Label();
-            this.home_pic = new System.Windows.Forms.PictureBox();
             this.showPass_cb = new System.Windows.Forms.CheckBox();
             this.A_login_button = new System.Windows.Forms.Button();
             this.admin_password_tb = new System.Windows.Forms.TextBox();
@@ -38,7 +37,6 @@
             this.adminName_tb = new System.Windows.Forms.TextBox();
             this.username_lbl = new System.Windows.Forms.Label();
             this.a_intro_lbl = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
             this.SuspendLayout();
             // 
             // intro_lbl
@@ -53,18 +51,6 @@
             this.intro_lbl.Size = new System.Drawing.Size(431, 74);
             this.intro_lbl.TabIndex = 1;
             this.intro_lbl.Text = "Point Of Sale";
-            // 
-            // home_pic
-            // 
-            this.home_pic.BackColor = System.Drawing.Color.Transparent;
-            this.home_pic.Image = ((System.Drawing.Image)(resources.GetObject("home_pic.Image")));
-            this.home_pic.Location = new System.Drawing.Point(12, 9);
-            this.home_pic.Name = "home_pic";
-            this.home_pic.Size = new System.Drawing.Size(46, 46);
-            this.home_pic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.home_pic.TabIndex = 4;
-            this.home_pic.TabStop = false;
-            this.home_pic.Click += new System.EventHandler(this.home_pic_Click);
             // 
             // showPass_cb
             // 
@@ -98,7 +84,7 @@
             this.admin_password_tb.Location = new System.Drawing.Point(52, 290);
             this.admin_password_tb.MinimumSize = new System.Drawing.Size(164, 35);
             this.admin_password_tb.Name = "admin_password_tb";
-            this.admin_password_tb.Size = new System.Drawing.Size(200, 35);
+            this.admin_password_tb.Size = new System.Drawing.Size(200, 20);
             this.admin_password_tb.TabIndex = 27;
             // 
             // password_lbl
@@ -118,7 +104,7 @@
             this.adminName_tb.Location = new System.Drawing.Point(52, 218);
             this.adminName_tb.MinimumSize = new System.Drawing.Size(164, 35);
             this.adminName_tb.Name = "adminName_tb";
-            this.adminName_tb.Size = new System.Drawing.Size(200, 35);
+            this.adminName_tb.Size = new System.Drawing.Size(200, 20);
             this.adminName_tb.TabIndex = 25;
             // 
             // username_lbl
@@ -160,12 +146,10 @@
             this.Controls.Add(this.adminName_tb);
             this.Controls.Add(this.username_lbl);
             this.Controls.Add(this.a_intro_lbl);
-            this.Controls.Add(this.home_pic);
             this.Controls.Add(this.intro_lbl);
             this.DoubleBuffered = true;
             this.Name = "admin_login";
             this.Text = "admin_login";
-            ((System.ComponentModel.ISupportInitialize)(this.home_pic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,7 +158,6 @@
         #endregion
 
         private System.Windows.Forms.Label intro_lbl;
-        private System.Windows.Forms.PictureBox home_pic;
         private System.Windows.Forms.CheckBox showPass_cb;
         private System.Windows.Forms.Button A_login_button;
         private System.Windows.Forms.TextBox admin_password_tb;

@@ -52,11 +52,23 @@
     <Compile Include="admin_login.Designer.cs">
       <DependentUpon>admin_login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Customers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers.Designer.cs">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manufacturer.Designer.cs">
+      <DependentUpon>Manufacturer.cs</DependentUpon>
     </Compile>
     <Compile Include="POSDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -74,8 +86,14 @@
     <EmbeddedResource Include="admin_login.resx">
       <DependentUpon>admin_login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Customers.resx">
+      <DependentUpon>Customers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manufacturer.resx">
+      <DependentUpon>Manufacturer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>

@@ -41,6 +41,7 @@
             this.order_lbl = new System.Windows.Forms.Label();
             this.customer_lbl = new System.Windows.Forms.Label();
             this.product_lbl = new System.Windows.Forms.Label();
+            this.logout_lbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sales_pb)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.products_pb)).BeginInit();
@@ -112,6 +113,7 @@
             this.customer_pb.Size = new System.Drawing.Size(58, 62);
             this.customer_pb.TabIndex = 11;
             this.customer_pb.TabStop = false;
+            this.customer_pb.Click += new System.EventHandler(this.customer_pb_Click);
             // 
             // Manufacturer_pb
             // 
@@ -121,6 +123,7 @@
             this.Manufacturer_pb.Size = new System.Drawing.Size(59, 62);
             this.Manufacturer_pb.TabIndex = 12;
             this.Manufacturer_pb.TabStop = false;
+            this.Manufacturer_pb.Click += new System.EventHandler(this.Manufacturer_pb_Click);
             // 
             // sales_lbl
             // 
@@ -178,6 +181,18 @@
             this.product_lbl.Text = "Products";
             this.product_lbl.Click += new System.EventHandler(this.label4_Click);
             // 
+            // logout_lbl
+            // 
+            this.logout_lbl.AutoSize = true;
+            this.logout_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.logout_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.logout_lbl.Location = new System.Drawing.Point(713, 9);
+            this.logout_lbl.Name = "logout_lbl";
+            this.logout_lbl.Size = new System.Drawing.Size(56, 16);
+            this.logout_lbl.TabIndex = 18;
+            this.logout_lbl.Text = "Log Out";
+            this.logout_lbl.Click += new System.EventHandler(this.logout_lbl_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +201,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.logout_lbl);
             this.Controls.Add(this.product_lbl);
             this.Controls.Add(this.customer_lbl);
             this.Controls.Add(this.order_lbl);
@@ -226,5 +242,6 @@
         private System.Windows.Forms.Label order_lbl;
         private System.Windows.Forms.Label customer_lbl;
         private System.Windows.Forms.Label product_lbl;
+        private System.Windows.Forms.Label logout_lbl;
     }
 }

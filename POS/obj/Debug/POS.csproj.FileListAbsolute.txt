@@ -10,3 +10,5 @@ C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.e
 C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.pdb
 C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.Dashboard.resources
 C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.Products.resources
+C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.Customers.resources
+C:\Users\probook 430\Desktop\Semester 4\Database\project\POS\POS\obj\Debug\POS.Manufacturer.resources

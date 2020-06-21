@@ -22,9 +22,9 @@ namespace POS
 
         private void home_pic_Click(object sender, EventArgs e)
         {
-            admin_login home = new admin_login();
+            /*admin_login home = new admin_login();
             home.Show();
-            this.Hide();
+            this.Hide();*/
         }
 
         private void A_login_button_Click(object sender, EventArgs e)
