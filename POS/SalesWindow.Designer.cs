@@ -130,6 +130,7 @@
             this.salesWindow_dgv.Name = "salesWindow_dgv";
             this.salesWindow_dgv.Size = new System.Drawing.Size(374, 178);
             this.salesWindow_dgv.TabIndex = 52;
+            this.salesWindow_dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.salesWindow_dgv_CellContentClick);
             // 
             // SalesWindow_lbl
             // 

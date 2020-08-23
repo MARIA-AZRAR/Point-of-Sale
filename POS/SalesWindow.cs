@@ -23,6 +23,7 @@ namespace POS
         }
 
         int saveID = 0;    //as our order will be saved multiple times so it will help in avoiding it
+        string orderIDS;  //to be used inside populate data
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
 
         //filling products and quantity
@@ -96,10 +97,10 @@ namespace POS
 
        
         //Populate Data
-         private void populateData()
+         private void populateSalesWindowData()
         {
             con.Open();
-            string query = "select i.order_id, p.pr_name as 'Product', d.quantity, i.order_date, p.price*d.quantity as 'Price' from investment i inner join orderDetails d on i.order_id = d.order_id inner join Product p on d.product_id = p.product_id ";
+            string query = "select i.order_id, p.pr_name as 'Product', d.quantity, i.order_date, p.price*d.quantity as 'Price' from investment i inner join orderDetails d on i.order_id = d.order_id inner join Product p on d.product_id = p.product_id where i.order_id = '" + orderIDS + "'";
             SqlDataAdapter adapter = new SqlDataAdapter(query,con);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
@@ -143,7 +144,15 @@ namespace POS
                 cmd.Parameters.AddWithValue("@a", date);
                 cmd.Parameters.AddWithValue("@b", customer_id);
                 cmd.Parameters.AddWithValue("@c", OName);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    cmd.ExecuteNonQuery();
+
+                }
+                catch
+                {
+                    MessageBox.Show("Some data is missing");
+                }
                 con.Close();
                 saveID++;
             }
@@ -161,7 +170,9 @@ namespace POS
 
             MessageBox.Show("successfuly Selected");
             con.Close();
-            populateData();
+
+            orderIDS = orderId;
+            populateSalesWindowData();
         }
 
         private void remove_btn_Click(object sender, EventArgs e)
@@ -216,6 +227,18 @@ namespace POS
 
             con.Close();
             return id;
+        }
+
+        private void salesWindow_dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1) //means if some records are present
+            {
+                DataGridViewRow dgvRow = salesWindow_dgv.Rows[e.RowIndex];  //we have selected the current row
+                id_tb.Text = dgvRow.Cells[0].Value.ToString();
+                Product_cb.Text = dgvRow.Cells[1].Value.ToString();
+                quantity_cb.Text =  dgvRow.Cells[2].Value.ToString();
+            }
+            
         }
     }
 }
