@@ -97,15 +97,15 @@ namespace POS
             string id = id_tb.Text;
             string name = name_tb.Text;
             string address = address_tb.Text;
-            string type = product_type_tb.Text;
+            //string type = product_type_tb.Text;
 
-            SqlCommand cmd = new SqlCommand("update manufacturer set name = @n, address= @a, product_type= @p where manufacturer_id=@i", con);
+            SqlCommand cmd = new SqlCommand("update manufacturer set name = @n, address= @a where manufacturer_id=@i", con);
             con.Open();
 
             cmd.Parameters.AddWithValue("@i", id);
             cmd.Parameters.AddWithValue("@n", name);
             cmd.Parameters.AddWithValue("@a", address);
-            cmd.Parameters.AddWithValue("@p", type);
+            //cmd.Parameters.AddWithValue("@p", type);
 
             cmd.ExecuteNonQuery();
             MessageBox.Show("Record Updated");
@@ -124,6 +124,28 @@ namespace POS
             MessageBox.Show("Record Deleted");
             con.Close();
             populateData();
+        }
+
+        private void product_type_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        int getID(string n)
+        {
+            string name = n;
+            string id;
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select product_id from Product where pr_name ='" + name + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            id = dt.Rows[0][0].ToString();
+
+
+            Console.WriteLine(id);
+            con.Close();
+            return Int16.Parse(id);
         }
     }
 }

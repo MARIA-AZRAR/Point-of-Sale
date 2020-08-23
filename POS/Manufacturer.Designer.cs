@@ -34,8 +34,6 @@
             this.id_lbl = new System.Windows.Forms.Label();
             this.id_tb = new System.Windows.Forms.TextBox();
             this.update_btn = new System.Windows.Forms.Button();
-            this.product_type_lbl = new System.Windows.Forms.Label();
-            this.product_type_tb = new System.Windows.Forms.TextBox();
             this.address_lbl = new System.Windows.Forms.Label();
             this.address_tb = new System.Windows.Forms.TextBox();
             this.Product_name_lbl = new System.Windows.Forms.Label();
@@ -106,30 +104,12 @@
             this.update_btn.UseVisualStyleBackColor = false;
             this.update_btn.Click += new System.EventHandler(this.update_btn_Click);
             // 
-            // product_type_lbl
-            // 
-            this.product_type_lbl.AutoSize = true;
-            this.product_type_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.product_type_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.product_type_lbl.Location = new System.Drawing.Point(30, 236);
-            this.product_type_lbl.Name = "product_type_lbl";
-            this.product_type_lbl.Size = new System.Drawing.Size(88, 16);
-            this.product_type_lbl.TabIndex = 60;
-            this.product_type_lbl.Text = "Product Type";
-            // 
-            // product_type_tb
-            // 
-            this.product_type_tb.Location = new System.Drawing.Point(33, 255);
-            this.product_type_tb.Name = "product_type_tb";
-            this.product_type_tb.Size = new System.Drawing.Size(187, 20);
-            this.product_type_tb.TabIndex = 59;
-            // 
             // address_lbl
             // 
             this.address_lbl.AutoSize = true;
             this.address_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.address_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.address_lbl.Location = new System.Drawing.Point(30, 290);
+            this.address_lbl.Location = new System.Drawing.Point(30, 246);
             this.address_lbl.Name = "address_lbl";
             this.address_lbl.Size = new System.Drawing.Size(57, 16);
             this.address_lbl.TabIndex = 58;
@@ -137,7 +117,7 @@
             // 
             // address_tb
             // 
-            this.address_tb.Location = new System.Drawing.Point(33, 309);
+            this.address_tb.Location = new System.Drawing.Point(33, 276);
             this.address_tb.Multiline = true;
             this.address_tb.Name = "address_tb";
             this.address_tb.Size = new System.Drawing.Size(187, 54);
@@ -256,8 +236,6 @@
             this.Controls.Add(this.id_lbl);
             this.Controls.Add(this.id_tb);
             this.Controls.Add(this.update_btn);
-            this.Controls.Add(this.product_type_lbl);
-            this.Controls.Add(this.product_type_tb);
             this.Controls.Add(this.address_lbl);
             this.Controls.Add(this.address_tb);
             this.Controls.Add(this.Product_name_lbl);
@@ -285,8 +263,6 @@
         private System.Windows.Forms.Label id_lbl;
         private System.Windows.Forms.TextBox id_tb;
         private System.Windows.Forms.Button update_btn;
-        private System.Windows.Forms.Label product_type_lbl;
-        private System.Windows.Forms.TextBox product_type_tb;
         private System.Windows.Forms.Label address_lbl;
         private System.Windows.Forms.TextBox address_tb;
         private System.Windows.Forms.Label Product_name_lbl;
