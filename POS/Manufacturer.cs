@@ -57,7 +57,7 @@ namespace POS
                 id_tb.Text = dgvRow.Cells[0].Value.ToString();
                 name_tb.Text = dgvRow.Cells[1].Value.ToString();
                 address_tb.Text = dgvRow.Cells[2].Value.ToString();
-                product_type_tb.Text = dgvRow.Cells[3].Value.ToString();
+                //product_type_tb.Text = dgvRow.Cells[3].Value.ToString();
             }
         }
 
@@ -77,14 +77,14 @@ namespace POS
         {
             string name = name_tb.Text;
             string address = address_tb.Text;
-            string type = product_type_tb.Text;
+            //string type = product_type_tb.Text;
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into manufacturer(name,address,product_type) values(@n, @a, @p)", con);
+            SqlCommand cmd = new SqlCommand("insert into manufacturer(name,address) values(@n, @a, @p)", con);
 
             cmd.Parameters.AddWithValue("@n", name);
             cmd.Parameters.AddWithValue("@a", address);
-            cmd.Parameters.AddWithValue("@p", type);
+            //cmd.Parameters.AddWithValue("@p", type);
 
             cmd.ExecuteNonQuery();
             MessageBox.Show("You Record have been successfuly Saved.");
@@ -141,7 +141,6 @@ namespace POS
             DataTable dt = new DataTable();
             da.Fill(dt);
             id = dt.Rows[0][0].ToString();
-
 
             Console.WriteLine(id);
             con.Close();
