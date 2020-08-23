@@ -55,7 +55,7 @@
             // Product_cb
             // 
             this.Product_cb.FormattingEnabled = true;
-            this.Product_cb.Location = new System.Drawing.Point(247, 156);
+            this.Product_cb.Location = new System.Drawing.Point(250, 176);
             this.Product_cb.Name = "Product_cb";
             this.Product_cb.Size = new System.Drawing.Size(187, 21);
             this.Product_cb.TabIndex = 69;
@@ -65,7 +65,7 @@
             this.Product_lbl.AutoSize = true;
             this.Product_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Product_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Product_lbl.Location = new System.Drawing.Point(244, 135);
+            this.Product_lbl.Location = new System.Drawing.Point(247, 155);
             this.Product_lbl.Name = "Product_lbl";
             this.Product_lbl.Size = new System.Drawing.Size(62, 16);
             this.Product_lbl.TabIndex = 68;
@@ -113,7 +113,7 @@
             this.Product_save_btn.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.Product_save_btn.Font = new System.Drawing.Font("Deadpool Movie", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Product_save_btn.ForeColor = System.Drawing.Color.White;
-            this.Product_save_btn.Location = new System.Drawing.Point(564, 146);
+            this.Product_save_btn.Location = new System.Drawing.Point(567, 166);
             this.Product_save_btn.Name = "Product_save_btn";
             this.Product_save_btn.Size = new System.Drawing.Size(83, 35);
             this.Product_save_btn.TabIndex = 54;
@@ -149,7 +149,7 @@
             // customer_cb
             // 
             this.customer_cb.FormattingEnabled = true;
-            this.customer_cb.Location = new System.Drawing.Point(601, 86);
+            this.customer_cb.Location = new System.Drawing.Point(247, 89);
             this.customer_cb.Name = "customer_cb";
             this.customer_cb.Size = new System.Drawing.Size(187, 21);
             this.customer_cb.TabIndex = 71;
@@ -159,7 +159,7 @@
             this.customer_lbl.AutoSize = true;
             this.customer_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.customer_lbl.Location = new System.Drawing.Point(598, 67);
+            this.customer_lbl.Location = new System.Drawing.Point(176, 94);
             this.customer_lbl.Name = "customer_lbl";
             this.customer_lbl.Size = new System.Drawing.Size(67, 16);
             this.customer_lbl.TabIndex = 70;
@@ -173,7 +173,7 @@
             this.Select_prod_lbl.BackColor = System.Drawing.Color.Transparent;
             this.Select_prod_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Select_prod_lbl.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.Select_prod_lbl.Location = new System.Drawing.Point(6, 81);
+            this.Select_prod_lbl.Location = new System.Drawing.Point(6, 74);
             this.Select_prod_lbl.Name = "Select_prod_lbl";
             this.Select_prod_lbl.Padding = new System.Windows.Forms.Padding(12);
             this.Select_prod_lbl.Size = new System.Drawing.Size(164, 48);
@@ -183,7 +183,7 @@
             // quantity_cb
             // 
             this.quantity_cb.FormattingEnabled = true;
-            this.quantity_cb.Location = new System.Drawing.Point(440, 156);
+            this.quantity_cb.Location = new System.Drawing.Point(443, 176);
             this.quantity_cb.Name = "quantity_cb";
             this.quantity_cb.Size = new System.Drawing.Size(86, 21);
             this.quantity_cb.TabIndex = 74;
@@ -193,7 +193,7 @@
             this.quantity_lbl.AutoSize = true;
             this.quantity_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantity_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.quantity_lbl.Location = new System.Drawing.Point(437, 135);
+            this.quantity_lbl.Location = new System.Drawing.Point(440, 155);
             this.quantity_lbl.Name = "quantity_lbl";
             this.quantity_lbl.Size = new System.Drawing.Size(60, 16);
             this.quantity_lbl.TabIndex = 73;
@@ -204,7 +204,7 @@
             this.remove_btn.BackColor = System.Drawing.Color.Crimson;
             this.remove_btn.Font = new System.Drawing.Font("Deadpool Movie", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remove_btn.ForeColor = System.Drawing.Color.White;
-            this.remove_btn.Location = new System.Drawing.Point(653, 148);
+            this.remove_btn.Location = new System.Drawing.Point(656, 166);
             this.remove_btn.Name = "remove_btn";
             this.remove_btn.Size = new System.Drawing.Size(94, 35);
             this.remove_btn.TabIndex = 75;
@@ -230,7 +230,7 @@
             this.order_id_lbl.AutoSize = true;
             this.order_id_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.order_id_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.order_id_lbl.Location = new System.Drawing.Point(23, 135);
+            this.order_id_lbl.Location = new System.Drawing.Point(26, 155);
             this.order_id_lbl.Name = "order_id_lbl";
             this.order_id_lbl.Size = new System.Drawing.Size(20, 16);
             this.order_id_lbl.TabIndex = 78;
@@ -238,7 +238,7 @@
             // 
             // id_tb
             // 
-            this.id_tb.Location = new System.Drawing.Point(26, 156);
+            this.id_tb.Location = new System.Drawing.Point(29, 176);
             this.id_tb.Name = "id_tb";
             this.id_tb.Size = new System.Drawing.Size(79, 20);
             this.id_tb.TabIndex = 77;
@@ -248,7 +248,7 @@
             this.order_name_lbl.AutoSize = true;
             this.order_name_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.order_name_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.order_name_lbl.Location = new System.Drawing.Point(120, 135);
+            this.order_name_lbl.Location = new System.Drawing.Point(123, 155);
             this.order_name_lbl.Name = "order_name_lbl";
             this.order_name_lbl.Size = new System.Drawing.Size(43, 16);
             this.order_name_lbl.TabIndex = 80;
@@ -256,7 +256,7 @@
             // 
             // orderName_tb
             // 
-            this.orderName_tb.Location = new System.Drawing.Point(123, 156);
+            this.orderName_tb.Location = new System.Drawing.Point(126, 176);
             this.orderName_tb.Name = "orderName_tb";
             this.orderName_tb.Size = new System.Drawing.Size(102, 20);
             this.orderName_tb.TabIndex = 79;

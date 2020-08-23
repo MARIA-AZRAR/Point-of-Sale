@@ -112,6 +112,7 @@ namespace POS
         //delete all of the given order id
         private void reset_btn_Click(object sender, EventArgs e)
         {
+            saveID = 0;
             con.Open();
 
             string id = id_tb.Text;   
@@ -125,6 +126,8 @@ namespace POS
 
             MessageBox.Show("Record Deleted");
             con.Close();
+            populateSalesWindowData();
+
         }
 
         private void Product_save_btn_Click(object sender, EventArgs e)
@@ -166,7 +169,16 @@ namespace POS
             cmd.Parameters.AddWithValue("@a", orderId);
             cmd.Parameters.AddWithValue("@b", ProductId);
             cmd.Parameters.AddWithValue("@c", quantity);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                cmd.ExecuteNonQuery();
+
+            }
+            catch
+            {
+                MessageBox.Show("Some Data is missing");
+
+            }
 
             MessageBox.Show("successfuly Selected");
             con.Close();
@@ -177,12 +189,27 @@ namespace POS
 
         private void remove_btn_Click(object sender, EventArgs e)
         {
-            saveID = 0;
+            string id = id_tb.Text;
+            string product = this.Product_cb.GetItemText(this.Product_cb.SelectedItem);
+            string ProductId = getPID(product);   //getting id
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("delete from orderDetails where order_id = @n and product_id = @p", con);
+            cmd.Parameters.AddWithValue("@n", id);
+            cmd.Parameters.AddWithValue("@p", ProductId);
+
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Item Removed");
+            con.Close();
+            populateSalesWindowData();
+
         }
 
         private void order_btn_Click(object sender, EventArgs e)
         {
             saveID = 0;  //again setting it to 0 for new order
+            MessageBox.Show("successfuly Ordered");
         }
 
         string getPID(string n)
