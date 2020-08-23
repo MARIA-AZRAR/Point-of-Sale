@@ -23,6 +23,11 @@ namespace POS
 
         int saveID = 0;    //as our order will be saved multiple times so it will help in avoiding it
         string orderIDS;  //to be used inside populate data
+
+        string quant;  //these both var are used to decrease the price
+        string pID;
+
+
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
 
         //filling products and quantity
@@ -246,6 +251,7 @@ namespace POS
             SqlCommand cmd = new SqlCommand("Select price from Product where pr_name ='" + name + "'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
+
             da.Fill(dt);
             try
             {
