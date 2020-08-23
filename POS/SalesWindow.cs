@@ -22,7 +22,7 @@ namespace POS
            // populateData();
         }
 
-
+        int saveID = 0;    //as our order will be saved multiple times so it will help in avoiding it
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
 
         //filling products and quantity
@@ -134,15 +134,20 @@ namespace POS
             string OName = this.orderName_tb.Text;
             string date = DateTime.UtcNow.ToString("yyyy-MM-dd");  //getting date
             string ProductId = getPID(product);   //getting id
+            SqlCommand cmd;
+            if (saveID == 0)
+            {
+                con.Open();
+                cmd = new SqlCommand("insert into investment(order_date, customer_id, order_name)  values(@a, @b, @c)", con);
 
-            con.Open();
-            SqlCommand cmd = new SqlCommand("insert into investment(order_date, customer_id, order_name)  values(@a, @b, @c)", con);
-
-            cmd.Parameters.AddWithValue("@a", date);
-            cmd.Parameters.AddWithValue("@b", customer_id);
-            cmd.Parameters.AddWithValue("@c", OName);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@a", date);
+                cmd.Parameters.AddWithValue("@b", customer_id);
+                cmd.Parameters.AddWithValue("@c", OName);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                saveID++;
+            }
+           
 
             string orderId = getOID(OName);
 
@@ -161,12 +166,12 @@ namespace POS
 
         private void remove_btn_Click(object sender, EventArgs e)
         {
-
+            saveID = 0;
         }
 
         private void order_btn_Click(object sender, EventArgs e)
         {
-
+            saveID = 0;  //again setting it to 0 for new order
         }
 
         string getPID(string n)
