@@ -35,7 +35,7 @@
             this.home_pic = new System.Windows.Forms.PictureBox();
             this.order_btn = new System.Windows.Forms.Button();
             this.Product_save_btn = new System.Windows.Forms.Button();
-            this.products_dgv = new System.Windows.Forms.DataGridView();
+            this.salesWindow_dgv = new System.Windows.Forms.DataGridView();
             this.SalesWindow_lbl = new System.Windows.Forms.Label();
             this.customer_cb = new System.Windows.Forms.ComboBox();
             this.customer_lbl = new System.Windows.Forms.Label();
@@ -47,7 +47,7 @@
             this.order_id_lbl = new System.Windows.Forms.Label();
             this.id_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.products_dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesWindow_dgv)).BeginInit();
             this.SuspendLayout();
             // 
             // Product_cb
@@ -118,15 +118,15 @@
             this.Product_save_btn.Text = "Select";
             this.Product_save_btn.UseVisualStyleBackColor = false;
             // 
-            // products_dgv
+            // salesWindow_dgv
             // 
-            this.products_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.products_dgv.BackgroundColor = System.Drawing.Color.LightSteelBlue;
-            this.products_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.products_dgv.Location = new System.Drawing.Point(111, 260);
-            this.products_dgv.Name = "products_dgv";
-            this.products_dgv.Size = new System.Drawing.Size(374, 178);
-            this.products_dgv.TabIndex = 52;
+            this.salesWindow_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.salesWindow_dgv.BackgroundColor = System.Drawing.Color.LightSteelBlue;
+            this.salesWindow_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.salesWindow_dgv.Location = new System.Drawing.Point(111, 260);
+            this.salesWindow_dgv.Name = "salesWindow_dgv";
+            this.salesWindow_dgv.Size = new System.Drawing.Size(374, 178);
+            this.salesWindow_dgv.TabIndex = 52;
             // 
             // SalesWindow_lbl
             // 
@@ -259,13 +259,13 @@
             this.Controls.Add(this.home_pic);
             this.Controls.Add(this.order_btn);
             this.Controls.Add(this.Product_save_btn);
-            this.Controls.Add(this.products_dgv);
+            this.Controls.Add(this.salesWindow_dgv);
             this.Controls.Add(this.SalesWindow_lbl);
             this.Name = "SalesWindow";
             this.Text = "SalesWindow";
             this.Load += new System.EventHandler(this.SalesWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.home_pic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.products_dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.salesWindow_dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,7 +279,7 @@
         private System.Windows.Forms.PictureBox home_pic;
         private System.Windows.Forms.Button order_btn;
         private System.Windows.Forms.Button Product_save_btn;
-        private System.Windows.Forms.DataGridView products_dgv;
+        private System.Windows.Forms.DataGridView salesWindow_dgv;
         private System.Windows.Forms.Label SalesWindow_lbl;
         private System.Windows.Forms.ComboBox customer_cb;
         private System.Windows.Forms.Label customer_lbl;

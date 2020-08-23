@@ -16,9 +16,10 @@ namespace POS
         public SalesWindow()
         {
             InitializeComponent();
-             FillComboBox();
+            FillCustomer();
+            FillComboBox();
             FillQuantity();  //now fill quantity after combo
-
+           // populateData();
         }
 
 
@@ -51,6 +52,21 @@ namespace POS
                 quantity_cb.Items.Add(i+1);
             }
 
+        }
+
+        void FillCustomer()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select customer_id from Customer order by customer_id ASC", con);
+            SqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                customer_cb.Items.Add(reader["customer_id"]);
+            }
+            con.Close();
+            reader.Close();
         }
 
         private void SalesWindow_Load(object sender, EventArgs e)
@@ -105,13 +121,14 @@ namespace POS
         }
 
         //Populate Data
-        private void populateData()
+         private void populateData()
         {
             con.Open();
-            SqlDataAdapter adapter = new SqlDataAdapter("select p.product_id,p.pr_name,p.price, p.units, m.name as 'Manufacturer' from Product p inner join manufacturer m on p.manufacturer_id = m.manufacturer_id", con);
+            string query = "select i.order_id, p.pr_name as 'Product', d.quantity, i.order_date, p.price*d.quantity as 'Price' from investment i inner join orderDetails d on i.order_id = d.order_id inner join Product p on d.product_id = p.product_id ";
+            SqlDataAdapter adapter = new SqlDataAdapter(query,con);
             DataTable dt = new DataTable();
             adapter.Fill(dt);
-            products_dgv.DataSource = dt;
+            salesWindow_dgv.DataSource = dt;
             con.Close();
         }
 
