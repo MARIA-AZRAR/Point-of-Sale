@@ -17,9 +17,26 @@ namespace POS
         {
             InitializeComponent();
             populateData();
+            FillComboBox();
+
             name_tb.Focus();
         }
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
+
+        void FillComboBox()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select name from manufacturer order by name ASC", con);
+            SqlDataReader reader;
+
+            reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                manufacturer_cb.Items.Add(reader["name"]);
+            }
+            con.Close();
+            reader.Close();
+        }
 
         private void dashboard_intro_lbl_Click(object sender, EventArgs e)
         {
@@ -135,6 +152,16 @@ namespace POS
             admin_login home = new admin_login();
             home.Show();
             this.Hide();
+        }
+
+        private void Product_name_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

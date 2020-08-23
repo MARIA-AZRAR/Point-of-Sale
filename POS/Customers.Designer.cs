@@ -199,6 +199,7 @@
             // 
             // customers_dgv
             // 
+            this.customers_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.customers_dgv.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.customers_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.customers_dgv.Location = new System.Drawing.Point(226, 133);

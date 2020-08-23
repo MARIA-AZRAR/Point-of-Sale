@@ -189,6 +189,7 @@
             // 
             // manufacturer_dgv
             // 
+            this.manufacturer_dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.manufacturer_dgv.BackgroundColor = System.Drawing.Color.LightSteelBlue;
             this.manufacturer_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.manufacturer_dgv.Location = new System.Drawing.Point(338, 133);

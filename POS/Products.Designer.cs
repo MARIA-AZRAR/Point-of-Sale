@@ -47,6 +47,8 @@
             this.id_tb = new System.Windows.Forms.TextBox();
             this.home_pic = new System.Windows.Forms.PictureBox();
             this.logout_lbl = new System.Windows.Forms.Label();
+            this.manufacturer_cb_lbl = new System.Windows.Forms.Label();
+            this.manufacturer_cb = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.products_dgv)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
             this.SuspendLayout();
@@ -73,7 +75,7 @@
             this.add_new_lbl.BackColor = System.Drawing.Color.Transparent;
             this.add_new_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.add_new_lbl.ForeColor = System.Drawing.Color.DarkSlateBlue;
-            this.add_new_lbl.Location = new System.Drawing.Point(12, 76);
+            this.add_new_lbl.Location = new System.Drawing.Point(12, 71);
             this.add_new_lbl.Name = "add_new_lbl";
             this.add_new_lbl.Padding = new System.Windows.Forms.Padding(12);
             this.add_new_lbl.Size = new System.Drawing.Size(137, 54);
@@ -126,7 +128,7 @@
             // 
             // name_tb
             // 
-            this.name_tb.Location = new System.Drawing.Point(33, 212);
+            this.name_tb.Location = new System.Drawing.Point(33, 192);
             this.name_tb.Name = "name_tb";
             this.name_tb.Size = new System.Drawing.Size(187, 20);
             this.name_tb.TabIndex = 37;
@@ -136,18 +138,19 @@
             this.Product_name_lbl.AutoSize = true;
             this.Product_name_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Product_name_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Product_name_lbl.Location = new System.Drawing.Point(30, 193);
+            this.Product_name_lbl.Location = new System.Drawing.Point(30, 173);
             this.Product_name_lbl.Name = "Product_name_lbl";
             this.Product_name_lbl.Size = new System.Drawing.Size(43, 16);
             this.Product_name_lbl.TabIndex = 38;
             this.Product_name_lbl.Text = "Name";
+            this.Product_name_lbl.Click += new System.EventHandler(this.Product_name_lbl_Click);
             // 
             // Price_lbl
             // 
             this.Price_lbl.AutoSize = true;
             this.Price_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Price_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Price_lbl.Location = new System.Drawing.Point(30, 244);
+            this.Price_lbl.Location = new System.Drawing.Point(30, 254);
             this.Price_lbl.Name = "Price_lbl";
             this.Price_lbl.Size = new System.Drawing.Size(37, 16);
             this.Price_lbl.TabIndex = 40;
@@ -155,7 +158,7 @@
             // 
             // Price_tb
             // 
-            this.Price_tb.Location = new System.Drawing.Point(33, 263);
+            this.Price_tb.Location = new System.Drawing.Point(33, 273);
             this.Price_tb.Name = "Price_tb";
             this.Price_tb.Size = new System.Drawing.Size(187, 20);
             this.Price_tb.TabIndex = 39;
@@ -209,7 +212,7 @@
             this.id_lbl.AutoSize = true;
             this.id_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.id_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.id_lbl.Location = new System.Drawing.Point(30, 147);
+            this.id_lbl.Location = new System.Drawing.Point(30, 131);
             this.id_lbl.Name = "id_lbl";
             this.id_lbl.Size = new System.Drawing.Size(20, 16);
             this.id_lbl.TabIndex = 45;
@@ -217,7 +220,7 @@
             // 
             // id_tb
             // 
-            this.id_tb.Location = new System.Drawing.Point(33, 166);
+            this.id_tb.Location = new System.Drawing.Point(33, 150);
             this.id_tb.Name = "id_tb";
             this.id_tb.Size = new System.Drawing.Size(187, 20);
             this.id_tb.TabIndex = 44;
@@ -246,12 +249,34 @@
             this.logout_lbl.Text = "Log Out";
             this.logout_lbl.Click += new System.EventHandler(this.logout_lbl_Click);
             // 
+            // manufacturer_cb_lbl
+            // 
+            this.manufacturer_cb_lbl.AutoSize = true;
+            this.manufacturer_cb_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manufacturer_cb_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.manufacturer_cb_lbl.Location = new System.Drawing.Point(30, 215);
+            this.manufacturer_cb_lbl.Name = "manufacturer_cb_lbl";
+            this.manufacturer_cb_lbl.Size = new System.Drawing.Size(89, 16);
+            this.manufacturer_cb_lbl.TabIndex = 48;
+            this.manufacturer_cb_lbl.Text = "Manufacturer";
+            this.manufacturer_cb_lbl.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // manufacturer_cb
+            // 
+            this.manufacturer_cb.FormattingEnabled = true;
+            this.manufacturer_cb.Location = new System.Drawing.Point(33, 230);
+            this.manufacturer_cb.Name = "manufacturer_cb";
+            this.manufacturer_cb.Size = new System.Drawing.Size(187, 21);
+            this.manufacturer_cb.TabIndex = 49;
+            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.manufacturer_cb);
+            this.Controls.Add(this.manufacturer_cb_lbl);
             this.Controls.Add(this.logout_lbl);
             this.Controls.Add(this.home_pic);
             this.Controls.Add(this.id_lbl);
@@ -299,5 +324,7 @@
         private System.Windows.Forms.TextBox id_tb;
         private System.Windows.Forms.PictureBox home_pic;
         private System.Windows.Forms.Label logout_lbl;
+        private System.Windows.Forms.Label manufacturer_cb_lbl;
+        private System.Windows.Forms.ComboBox manufacturer_cb;
     }
 }
