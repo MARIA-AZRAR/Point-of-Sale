@@ -85,6 +85,7 @@
             this.sales_pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.sales_pb.TabIndex = 8;
             this.sales_pb.TabStop = false;
+            this.sales_pb.Click += new System.EventHandler(this.sales_pb_Click);
             // 
             // products_pb
             // 

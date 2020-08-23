@@ -61,5 +61,12 @@ namespace POS
             Manufacturer manu = new Manufacturer();
             manu.Show();
         }
+
+        private void sales_pb_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            SalesWindow sales = new SalesWindow();
+            sales.Show();
+        }
     }
 }
