@@ -114,7 +114,6 @@ namespace POS
         {
             saveID = 0;
             con.Open();
-
             string id = id_tb.Text;   
             SqlCommand cmd = new SqlCommand("delete from orderDetails where order_id = @n", con);
             cmd.Parameters.AddWithValue("@n", id);
