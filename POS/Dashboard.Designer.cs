@@ -105,6 +105,7 @@
             this.Order_pb.Size = new System.Drawing.Size(59, 62);
             this.Order_pb.TabIndex = 10;
             this.Order_pb.TabStop = false;
+            this.Order_pb.Click += new System.EventHandler(this.Order_pb_Click);
             // 
             // customer_pb
             // 

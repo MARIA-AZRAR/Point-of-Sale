@@ -68,5 +68,12 @@ namespace POS
             SalesWindow sales = new SalesWindow();
             sales.Show();
         }
+
+        private void Order_pb_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Orders orders = new Orders();
+            orders.Show();
+        }
     }
 }

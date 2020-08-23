@@ -19,7 +19,6 @@ namespace POS
             FillCustomer();
             FillComboBox();
             FillQuantity();  //now fill quantity after combo
-           // populateData();
         }
 
         int saveID = 0;    //as our order will be saved multiple times so it will help in avoiding it
@@ -137,6 +136,10 @@ namespace POS
             string OName = this.orderName_tb.Text;
             string date = DateTime.UtcNow.ToString("yyyy-MM-dd");  //getting date
             string ProductId = getPID(product);   //getting id
+            string price = getPrice(product);  //getting prduct price
+
+            int TotalPrice = Int16.Parse(quantity) * Int16.Parse(price);
+
             SqlCommand cmd;
             if (saveID == 0)
             {
@@ -163,11 +166,13 @@ namespace POS
             string orderId = getOID(OName);
 
             con.Open();
-            cmd = new SqlCommand("insert into orderDetails(order_id, product_id,quantity) values(@a, @b, @c)", con);
+            cmd = new SqlCommand("insert into orderDetails(order_id, product_id,quantity, price) values(@a, @b, @c, @d)", con);
 
             cmd.Parameters.AddWithValue("@a", orderId);
             cmd.Parameters.AddWithValue("@b", ProductId);
             cmd.Parameters.AddWithValue("@c", quantity);
+            cmd.Parameters.AddWithValue("@d", TotalPrice.ToString());
+
             try
             {
                 cmd.ExecuteNonQuery();
@@ -217,6 +222,28 @@ namespace POS
             string id = "0";
             con.Open();
             SqlCommand cmd = new SqlCommand("Select product_id from Product where pr_name ='" + name + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            try
+            {
+                id = dt.Rows[0][0].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Add some Data First");
+            }
+
+            con.Close();
+            return id;
+        }
+
+        string getPrice(string n)
+        {
+            string name = n;
+            string id = "0";
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select price from Product where pr_name ='" + name + "'", con);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             da.Fill(dt);
