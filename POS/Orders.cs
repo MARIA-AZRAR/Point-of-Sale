@@ -30,6 +30,8 @@ namespace POS
             SqlDataReader reader;
             reader = cmd.ExecuteReader();
 
+            orders_cb.Items.Clear();
+
             while (reader.Read())
             {
                 orders_cb.Items.Add(reader["order_id"]);
@@ -94,6 +96,30 @@ namespace POS
             adapter.Fill(dt);
             Orders_dgv.DataSource = dt;
             con.Close();
+        }
+
+        private void del_btn_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string id = orders_cb.GetItemText(orders_cb.SelectedItem);
+            SqlCommand cmd = new SqlCommand("delete from orderDetails where order_id = @n", con);
+            cmd.Parameters.AddWithValue("@n", id);
+            cmd.ExecuteNonQuery();
+            //DELETING RECORDS FROM BOTH TABLES
+            cmd = new SqlCommand("delete from investment where order_id = @n", con);
+            cmd.Parameters.AddWithValue("@n", id);
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("Record Deleted");
+            con.Close();
+
+            first_name_tb.Text = null;
+            last_name_tb.Text = null;
+            email_tb.Text = null;
+            Phone_tb.Text = null;
+            totalPrice_tb.Text = null;
+            FillOrders();
+            populateData();
         }
     }
 }

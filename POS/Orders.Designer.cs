@@ -105,6 +105,7 @@
             this.del_btn.TabIndex = 55;
             this.del_btn.Text = "Delete";
             this.del_btn.UseVisualStyleBackColor = false;
+            this.del_btn.Click += new System.EventHandler(this.del_btn_Click);
             // 
             // Orders_dgv
             // 
