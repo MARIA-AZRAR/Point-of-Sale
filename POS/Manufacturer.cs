@@ -80,7 +80,7 @@ namespace POS
             //string type = product_type_tb.Text;
 
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into manufacturer(name,address) values(@n, @a, @p)", con);
+            SqlCommand cmd = new SqlCommand("insert into manufacturer(name,address) values(@n, @a)", con);
 
             cmd.Parameters.AddWithValue("@n", name);
             cmd.Parameters.AddWithValue("@a", address);

@@ -46,6 +46,8 @@
             this.reset_btn = new System.Windows.Forms.Button();
             this.order_id_lbl = new System.Windows.Forms.Label();
             this.id_tb = new System.Windows.Forms.TextBox();
+            this.order_name_lbl = new System.Windows.Forms.Label();
+            this.orderName_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.home_pic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.salesWindow_dgv)).BeginInit();
             this.SuspendLayout();
@@ -53,7 +55,7 @@
             // Product_cb
             // 
             this.Product_cb.FormattingEnabled = true;
-            this.Product_cb.Location = new System.Drawing.Point(171, 156);
+            this.Product_cb.Location = new System.Drawing.Point(247, 156);
             this.Product_cb.Name = "Product_cb";
             this.Product_cb.Size = new System.Drawing.Size(187, 21);
             this.Product_cb.TabIndex = 69;
@@ -63,7 +65,7 @@
             this.Product_lbl.AutoSize = true;
             this.Product_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Product_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Product_lbl.Location = new System.Drawing.Point(168, 137);
+            this.Product_lbl.Location = new System.Drawing.Point(244, 135);
             this.Product_lbl.Name = "Product_lbl";
             this.Product_lbl.Size = new System.Drawing.Size(62, 16);
             this.Product_lbl.TabIndex = 68;
@@ -104,7 +106,7 @@
             this.order_btn.TabIndex = 63;
             this.order_btn.Text = "Order";
             this.order_btn.UseVisualStyleBackColor = false;
-            this.order_btn.Click += new System.EventHandler(this.update_btn_Click);
+            this.order_btn.Click += new System.EventHandler(this.order_btn_Click);
             // 
             // Product_save_btn
             // 
@@ -117,6 +119,7 @@
             this.Product_save_btn.TabIndex = 54;
             this.Product_save_btn.Text = "Select";
             this.Product_save_btn.UseVisualStyleBackColor = false;
+            this.Product_save_btn.Click += new System.EventHandler(this.Product_save_btn_Click);
             // 
             // salesWindow_dgv
             // 
@@ -179,9 +182,9 @@
             // quantity_cb
             // 
             this.quantity_cb.FormattingEnabled = true;
-            this.quantity_cb.Location = new System.Drawing.Point(387, 156);
+            this.quantity_cb.Location = new System.Drawing.Point(440, 156);
             this.quantity_cb.Name = "quantity_cb";
-            this.quantity_cb.Size = new System.Drawing.Size(146, 21);
+            this.quantity_cb.Size = new System.Drawing.Size(86, 21);
             this.quantity_cb.TabIndex = 74;
             // 
             // quantity_lbl
@@ -189,7 +192,7 @@
             this.quantity_lbl.AutoSize = true;
             this.quantity_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantity_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.quantity_lbl.Location = new System.Drawing.Point(384, 134);
+            this.quantity_lbl.Location = new System.Drawing.Point(437, 135);
             this.quantity_lbl.Name = "quantity_lbl";
             this.quantity_lbl.Size = new System.Drawing.Size(60, 16);
             this.quantity_lbl.TabIndex = 73;
@@ -206,6 +209,7 @@
             this.remove_btn.TabIndex = 75;
             this.remove_btn.Text = "Remove";
             this.remove_btn.UseVisualStyleBackColor = false;
+            this.remove_btn.Click += new System.EventHandler(this.remove_btn_Click);
             // 
             // reset_btn
             // 
@@ -225,7 +229,7 @@
             this.order_id_lbl.AutoSize = true;
             this.order_id_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.order_id_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.order_id_lbl.Location = new System.Drawing.Point(66, 134);
+            this.order_id_lbl.Location = new System.Drawing.Point(23, 135);
             this.order_id_lbl.Name = "order_id_lbl";
             this.order_id_lbl.Size = new System.Drawing.Size(20, 16);
             this.order_id_lbl.TabIndex = 78;
@@ -233,10 +237,28 @@
             // 
             // id_tb
             // 
-            this.id_tb.Location = new System.Drawing.Point(69, 154);
+            this.id_tb.Location = new System.Drawing.Point(26, 156);
             this.id_tb.Name = "id_tb";
             this.id_tb.Size = new System.Drawing.Size(79, 20);
             this.id_tb.TabIndex = 77;
+            // 
+            // order_name_lbl
+            // 
+            this.order_name_lbl.AutoSize = true;
+            this.order_name_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.order_name_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.order_name_lbl.Location = new System.Drawing.Point(120, 135);
+            this.order_name_lbl.Name = "order_name_lbl";
+            this.order_name_lbl.Size = new System.Drawing.Size(43, 16);
+            this.order_name_lbl.TabIndex = 80;
+            this.order_name_lbl.Text = "Name";
+            // 
+            // orderName_tb
+            // 
+            this.orderName_tb.Location = new System.Drawing.Point(123, 156);
+            this.orderName_tb.Name = "orderName_tb";
+            this.orderName_tb.Size = new System.Drawing.Size(102, 20);
+            this.orderName_tb.TabIndex = 79;
             // 
             // SalesWindow
             // 
@@ -244,6 +266,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.order_name_lbl);
+            this.Controls.Add(this.orderName_tb);
             this.Controls.Add(this.order_id_lbl);
             this.Controls.Add(this.id_tb);
             this.Controls.Add(this.reset_btn);
@@ -290,5 +314,7 @@
         private System.Windows.Forms.Button reset_btn;
         private System.Windows.Forms.Label order_id_lbl;
         private System.Windows.Forms.TextBox id_tb;
+        private System.Windows.Forms.Label order_name_lbl;
+        private System.Windows.Forms.TextBox orderName_tb;
     }
 }

@@ -79,10 +79,6 @@ namespace POS
 
         }
 
-        private void update_btn_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void home_pic_Click(object sender, EventArgs e)
         {
@@ -98,28 +94,7 @@ namespace POS
             this.Hide();
         }
 
-        string getID(string n)
-        {
-            string name = n;
-            string id = "0";
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Select manufacturer_id from manufacturer where name ='" + name + "'", con);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            try
-            {
-                id = dt.Rows[0][0].ToString();
-            }
-            catch
-            {
-                MessageBox.Show("Add some Data First");
-            }
-
-            con.Close();
-            return id;
-        }
-
+       
         //Populate Data
          private void populateData()
         {
@@ -149,6 +124,93 @@ namespace POS
 
             MessageBox.Show("Record Deleted");
             con.Close();
+        }
+
+        private void Product_save_btn_Click(object sender, EventArgs e)
+        {
+            string customer_id = this.customer_cb.GetItemText(this.customer_cb.SelectedItem);
+            string product = this.Product_cb.GetItemText(this.Product_cb.SelectedItem);
+            string quantity = this.quantity_cb.GetItemText(this.quantity_cb.SelectedItem);
+            string OName = this.orderName_tb.Text;
+            string date = DateTime.UtcNow.ToString("yyyy-MM-dd");  //getting date
+            string ProductId = getPID(product);   //getting id
+
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into investment(order_date, customer_id, order_name)  values(@a, @b, @c)", con);
+
+            cmd.Parameters.AddWithValue("@a", date);
+            cmd.Parameters.AddWithValue("@b", customer_id);
+            cmd.Parameters.AddWithValue("@c", OName);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            string orderId = getOID(OName);
+
+            con.Open();
+            cmd = new SqlCommand("insert into orderDetails(order_id, product_id,quantity) values(@a, @b, @c)", con);
+
+            cmd.Parameters.AddWithValue("@a", orderId);
+            cmd.Parameters.AddWithValue("@b", ProductId);
+            cmd.Parameters.AddWithValue("@c", quantity);
+            cmd.ExecuteNonQuery();
+
+            MessageBox.Show("successfuly Selected");
+            con.Close();
+            populateData();
+        }
+
+        private void remove_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void order_btn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        string getPID(string n)
+        {
+            string name = n;
+            string id = "0";
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select product_id from Product where pr_name ='" + name + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            try
+            {
+                id = dt.Rows[0][0].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Add some Data First");
+            }
+
+            con.Close();
+            return id;
+        }
+
+        string getOID(string n)
+        {
+            string name = n;
+            string id = "0";
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select order_id from investment where order_name ='" + name + "'", con);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            try
+            {
+                id = dt.Rows[0][0].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Add some Data First");
+            }
+
+            con.Close();
+            return id;
         }
     }
 }
