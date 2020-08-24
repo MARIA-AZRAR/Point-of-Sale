@@ -149,7 +149,7 @@
             this.email_lbl.AutoSize = true;
             this.email_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.email_lbl.Location = new System.Drawing.Point(179, 258);
+            this.email_lbl.Location = new System.Drawing.Point(232, 306);
             this.email_lbl.Name = "email_lbl";
             this.email_lbl.Size = new System.Drawing.Size(40, 16);
             this.email_lbl.TabIndex = 80;
@@ -157,9 +157,9 @@
             // 
             // email_tb
             // 
-            this.email_tb.Location = new System.Drawing.Point(182, 287);
+            this.email_tb.Location = new System.Drawing.Point(235, 325);
             this.email_tb.Name = "email_tb";
-            this.email_tb.Size = new System.Drawing.Size(139, 20);
+            this.email_tb.Size = new System.Drawing.Size(113, 20);
             this.email_tb.TabIndex = 79;
             // 
             // Last_name_lbl
@@ -167,7 +167,7 @@
             this.Last_name_lbl.AutoSize = true;
             this.Last_name_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Last_name_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Last_name_lbl.Location = new System.Drawing.Point(179, 183);
+            this.Last_name_lbl.Location = new System.Drawing.Point(232, 243);
             this.Last_name_lbl.Name = "Last_name_lbl";
             this.Last_name_lbl.Size = new System.Drawing.Size(71, 16);
             this.Last_name_lbl.TabIndex = 78;
@@ -175,7 +175,7 @@
             // 
             // last_name_tb
             // 
-            this.last_name_tb.Location = new System.Drawing.Point(182, 213);
+            this.last_name_tb.Location = new System.Drawing.Point(235, 262);
             this.last_name_tb.Name = "last_name_tb";
             this.last_name_tb.Size = new System.Drawing.Size(113, 20);
             this.last_name_tb.TabIndex = 77;
@@ -185,7 +185,7 @@
             this.TotalPrice_lbl.AutoSize = true;
             this.TotalPrice_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalPrice_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.TotalPrice_lbl.Location = new System.Drawing.Point(113, 336);
+            this.TotalPrice_lbl.Location = new System.Drawing.Point(164, 362);
             this.TotalPrice_lbl.Name = "TotalPrice_lbl";
             this.TotalPrice_lbl.Size = new System.Drawing.Size(70, 16);
             this.TotalPrice_lbl.TabIndex = 76;
@@ -193,7 +193,7 @@
             // 
             // totalPrice_tb
             // 
-            this.totalPrice_tb.Location = new System.Drawing.Point(116, 355);
+            this.totalPrice_tb.Location = new System.Drawing.Point(167, 381);
             this.totalPrice_tb.Name = "totalPrice_tb";
             this.totalPrice_tb.Size = new System.Drawing.Size(94, 20);
             this.totalPrice_tb.TabIndex = 75;
@@ -203,7 +203,7 @@
             this.Phone_lbl.AutoSize = true;
             this.Phone_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Phone_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.Phone_lbl.Location = new System.Drawing.Point(25, 258);
+            this.Phone_lbl.Location = new System.Drawing.Point(78, 306);
             this.Phone_lbl.Name = "Phone_lbl";
             this.Phone_lbl.Size = new System.Drawing.Size(57, 16);
             this.Phone_lbl.TabIndex = 74;
@@ -211,7 +211,7 @@
             // 
             // Phone_tb
             // 
-            this.Phone_tb.Location = new System.Drawing.Point(28, 287);
+            this.Phone_tb.Location = new System.Drawing.Point(81, 325);
             this.Phone_tb.Name = "Phone_tb";
             this.Phone_tb.Size = new System.Drawing.Size(113, 20);
             this.Phone_tb.TabIndex = 73;
@@ -221,7 +221,7 @@
             this.First_name_lbl.AutoSize = true;
             this.First_name_lbl.Font = new System.Drawing.Font("Adobe Heiti Std R", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.First_name_lbl.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.First_name_lbl.Location = new System.Drawing.Point(25, 183);
+            this.First_name_lbl.Location = new System.Drawing.Point(78, 243);
             this.First_name_lbl.Name = "First_name_lbl";
             this.First_name_lbl.Size = new System.Drawing.Size(72, 16);
             this.First_name_lbl.TabIndex = 72;
@@ -229,7 +229,7 @@
             // 
             // first_name_tb
             // 
-            this.first_name_tb.Location = new System.Drawing.Point(28, 213);
+            this.first_name_tb.Location = new System.Drawing.Point(81, 262);
             this.first_name_tb.Name = "first_name_tb";
             this.first_name_tb.Size = new System.Drawing.Size(113, 20);
             this.first_name_tb.TabIndex = 71;
