@@ -16,17 +16,17 @@ namespace POS
         public SalesWindow()
         {
             InitializeComponent();
-            FillCustomer();
-            FillComboBox();
+            FillCustomer();   //filling customer
+            FillComboBox();  //filling prod
             FillQuantity();  //now fill quantity after combo
         }
 
         int saveID = 0;    //as our order will be saved multiple times so it will help in avoiding it
-        string orderIDS;  //to be used inside populate data
+        string orderIDS;  //to be used inside populate data we'll get order id to show particular record in datagrid view
 
         string quant;  //these both var are used to decrease the price
         string pID;
-        Dictionary<string, string> ProdQuant = new Dictionary<string, string>();
+        Dictionary<string, string> ProdQuant = new Dictionary<string, string>();  //to temporaray save the product selected
 
 
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
@@ -51,7 +51,7 @@ namespace POS
         //getting quantity of selected Produdct
         void FillQuantity()
         {
-            string quantity = "15";
+            string quantity = "30";
 
             for(int i = 0; i< Int16.Parse(quantity); ++i)
             {
@@ -116,14 +116,14 @@ namespace POS
 
         //delete all of the given order id
         private void reset_btn_Click(object sender, EventArgs e)
-        {
-            saveID = 0;
+        { 
+            saveID = 0;  //this order has been finished and now a new can be started
             con.Open();
             string id = id_tb.Text;   
             SqlCommand cmd = new SqlCommand("delete from orderDetails where order_id = @n", con);
             cmd.Parameters.AddWithValue("@n", id);
             cmd.ExecuteNonQuery();
-                                                        //DELETING RECORDS FROM BOTH TABLES
+                                                        //DELETING RECORDS FROM BOTH TABLES first from child then parent
             cmd = new SqlCommand("delete from investment where order_id = @n", con);
             cmd.Parameters.AddWithValue("@n", id);
             cmd.ExecuteNonQuery();
