@@ -134,7 +134,7 @@ namespace POS
 
         }
 
-        //this save button will save our data in table
+        //this save button will save our data in table its actually select button
         private void Product_save_btn_Click(object sender, EventArgs e)
         {
             string customer_id = this.customer_cb.GetItemText(this.customer_cb.SelectedItem);
@@ -146,7 +146,7 @@ namespace POS
             string ProductId = getPID(product);   //getting id
             string price = getPrice(product);  //getting prduct price
 
-            int TotalPrice = Int16.Parse(quantity) * Int16.Parse(price);
+            int TotalPrice = Int16.Parse(quantity) * Int16.Parse(price);  //calculating the price of single product of order 
 
             SqlCommand cmd;
             if (saveID == 0)   //means if our order has just started and only has one product it is done to avoid saving data multiple ime in investment table
@@ -167,11 +167,11 @@ namespace POS
                     MessageBox.Show("Some data is missing");
                 }
                 con.Close();
-                saveID++;
+                saveID++;   //first time record has been added in parent table now we don't need to add it again
             }
            
 
-            string orderId = getOID(OName);
+            string orderId = getOID(OName);    //getting order id from order name
 
             con.Open();
             cmd = new SqlCommand("insert into orderDetails(order_id, product_id,quantity, price) values(@a, @b, @c, @d)", con);
@@ -195,12 +195,12 @@ namespace POS
             MessageBox.Show("successfuly Selected");
             con.Close();
 
-            orderIDS = orderId;
-            ProdQuant.Add(ProductId, quantity);
+            orderIDS = orderId;     //saving in global var to be used in populate data
+            ProdQuant.Add(ProductId, quantity);  //adding in dictionary for updation of the quantity
             populateSalesWindowData();
         }
 
-        private void remove_btn_Click(object sender, EventArgs e)
+        private void remove_btn_Click(object sender, EventArgs e)  //removing single product from the cart
         {
             string id = id_tb.Text;
             string product = this.Product_cb.GetItemText(this.Product_cb.SelectedItem);
@@ -224,6 +224,7 @@ namespace POS
             saveID = 0;  //again setting it to 0 for new order
             int updatequantity;
             MessageBox.Show("successfuly Ordered");
+            //below op to reduce the quantity
             foreach (var i in ProdQuant)
             {
                 con.Open();
