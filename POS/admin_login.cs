@@ -16,7 +16,7 @@ namespace POS
         public admin_login()
         {
             InitializeComponent();
-            admin_password_tb.UseSystemPasswordChar = true;
+            admin_password_tb.UseSystemPasswordChar = true;   //this will hide the password
         }
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
 

@@ -16,8 +16,8 @@ namespace POS
         public Products()
         {
             InitializeComponent();
-            populateData();
-            FillComboBox();
+            populateData();  //populate data in data grid view
+            FillComboBox();  //fill manufactureres drop down at start
 
             name_tb.Focus();
         }
@@ -29,10 +29,10 @@ namespace POS
             SqlCommand cmd = new SqlCommand("Select name from manufacturer order by name ASC", con);
             SqlDataReader reader;
 
-            reader = cmd.ExecuteReader();
-            while (reader.Read())
+            reader = cmd.ExecuteReader();   //reads data from database
+            while (reader.Read())   //until reader not ended
             {
-                manufacturer_cb.Items.Add(reader["name"]);
+                manufacturer_cb.Items.Add(reader["name"]);  //add names in manufacturer dropdown list
             }
             con.Close();
             reader.Close();
@@ -44,11 +44,11 @@ namespace POS
         }
         private void populateData()
         {
-            con.Open();
+            con.Open(); 
             SqlDataAdapter adapter = new SqlDataAdapter("select p.product_id,p.pr_name,p.price, p.units, m.name as 'Manufacturer' from Product p inner join manufacturer m on p.manufacturer_id = m.manufacturer_id",con);
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable();  //reads data with sql adapter then add in data table
             adapter.Fill(dt);
-            products_dgv.DataSource = dt;
+            products_dgv.DataSource = dt;    //then make data grid's datasource equal to table to move data in it
             con.Close();
         }
 
@@ -62,12 +62,12 @@ namespace POS
         private void Product_save_btn_Click(object sender, EventArgs e)
         {
             string name = name_tb.Text;
-            string price = Price_tb.Text; 
+            string price = Price_tb.Text; //getting from the textbox
             string units = unit_tb.Text;
 
             string manufactName = this.manufacturer_cb.GetItemText(this.manufacturer_cb.SelectedItem);  //getting name from comboBox
 
-            string id = getID(manufactName);   //getting id
+            string id = getID(manufactName);   //a function created to get id from the product name so that it can be added as foreign key in another table
 
             con.Open();
             SqlCommand cmd = new SqlCommand("insert into Product(pr_name,price,units,manufacturer_id ) values(@a, @b, @c, @d)", con);
@@ -77,7 +77,7 @@ namespace POS
             cmd.Parameters.AddWithValue("@c", units);
             cmd.Parameters.AddWithValue("@d", id);
 
-            cmd.ExecuteNonQuery();
+            cmd.ExecuteNonQuery();  //executing command
             MessageBox.Show("You Record have been successfuly Saved.");
             con.Close();
             populateData();
@@ -88,10 +88,10 @@ namespace POS
             con.Open();
             string search = search_tb.Text;
             SqlCommand cmd = new SqlCommand("Select * from Product where pr_name Like '%"+search+"%' ", con);
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            products_dgv.DataSource = dt;
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);   //grtting new data 
+            DataTable dt = new DataTable();  
+            adapter.Fill(dt);  //filling data table
+            products_dgv.DataSource = dt;  //giving it as a source
             con.Close();
         }
 
@@ -118,13 +118,13 @@ namespace POS
 
             string Manuf_id = getID(manufactName);   //getting id
 
-            SqlCommand cmd = new SqlCommand("update Product set pr_name = @n, price= @p, units= @u , manufacturer_id = @i  where product_id=@i", con);
+            SqlCommand cmd = new SqlCommand("update Product set pr_name = @n, price= @p, units= @u , manufacturer_id = @m  where product_id= @i ", con);
             con.Open();
             cmd.Parameters.AddWithValue("@i", id);
             cmd.Parameters.AddWithValue("@n", name);
             cmd.Parameters.AddWithValue("@p", price);
             cmd.Parameters.AddWithValue("@u", units);
-            cmd.Parameters.AddWithValue("@i", Manuf_id);
+            cmd.Parameters.AddWithValue("@m", Manuf_id);
 
 
             cmd.ExecuteNonQuery();
@@ -178,7 +178,7 @@ namespace POS
 
         string getID(string n)
         {
-            string name = n;
+            string name = n;  //initializing
             string id = "0";
             con.Open();
             SqlCommand cmd = new SqlCommand("Select manufacturer_id from manufacturer where name ='" + name + "'", con);

@@ -26,6 +26,7 @@ namespace POS
 
         string quant;  //these both var are used to decrease the price
         string pID;
+        Dictionary<string, string> ProdQuant = new Dictionary<string, string>();
 
 
         SqlConnection con = new SqlConnection("Data Source = desktop-iumas6g; Initial Catalog = POS; Integrated Security = True");
@@ -34,7 +35,7 @@ namespace POS
         void FillComboBox()
         {
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select pr_name from Product order by pr_name ASC", con);
+            SqlCommand cmd = new SqlCommand("Select pr_name from Product where units > '" + 0 + "' order by pr_name ASC ", con);
             SqlDataReader reader;
 
             reader = cmd.ExecuteReader();
@@ -133,12 +134,14 @@ namespace POS
 
         }
 
+        //this save button will save our data in table
         private void Product_save_btn_Click(object sender, EventArgs e)
         {
             string customer_id = this.customer_cb.GetItemText(this.customer_cb.SelectedItem);
             string product = this.Product_cb.GetItemText(this.Product_cb.SelectedItem);
             string quantity = this.quantity_cb.GetItemText(this.quantity_cb.SelectedItem);
             string OName = this.orderName_tb.Text;
+
             string date = DateTime.UtcNow.ToString("yyyy-MM-dd");  //getting date
             string ProductId = getPID(product);   //getting id
             string price = getPrice(product);  //getting prduct price
@@ -146,7 +149,7 @@ namespace POS
             int TotalPrice = Int16.Parse(quantity) * Int16.Parse(price);
 
             SqlCommand cmd;
-            if (saveID == 0)
+            if (saveID == 0)   //means if our order has just started and only has one product it is done to avoid saving data multiple ime in investment table
             {
                 con.Open();
                 cmd = new SqlCommand("insert into investment(order_date, customer_id, order_name)  values(@a, @b, @c)", con);
@@ -193,6 +196,7 @@ namespace POS
             con.Close();
 
             orderIDS = orderId;
+            ProdQuant.Add(ProductId, quantity);
             populateSalesWindowData();
         }
 
@@ -218,7 +222,27 @@ namespace POS
         private void order_btn_Click(object sender, EventArgs e)
         {
             saveID = 0;  //again setting it to 0 for new order
+            int updatequantity;
             MessageBox.Show("successfuly Ordered");
+            foreach (var i in ProdQuant)
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select units from Product where product_id ='" + i.Key + "'", con);   //getting quantity from the products
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+
+                da.Fill(dt);
+
+                updatequantity = Int16.Parse(dt.Rows[0][0].ToString()) - Int16.Parse(i.Value);  // decrementing quantity
+                if (updatequantity < 0)
+                    updatequantity = 0;   //if it becomes less then 0 make it equal to 0
+
+                cmd = new SqlCommand("update Product set units = '"+ updatequantity + "' where product_id = '"+ i.Key +"' ", con);  //updating data
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+
+            ProdQuant.Clear();
         }
 
         string getPID(string n)
