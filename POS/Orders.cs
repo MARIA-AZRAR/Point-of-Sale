@@ -59,7 +59,8 @@ namespace POS
             orderIDS = this.orders_cb.GetItemText(this.orders_cb.SelectedItem);
             populateData();
 
-            string query1 = "Select SUM(price) as 'Price' from orderDetails where order_id = '" + orderIDS + "'";
+            string query1 = "Select SUM(price) as 'Price' from orderDetails where order_id = '" + orderIDS + "'";  //to get total price
+            //to get customer details
             string query2 = "select c.first_name, c.last_name, c.Email, c.phone_no from investment i inner join Customer c on i.customer_id = c.customer_id where  i.order_id = '" + orderIDS + "'";
             con.Open();
             //getting Total price
@@ -86,7 +87,7 @@ namespace POS
 
         }
 
-        //Populate Data
+        //Populate Data getting order details
         private void populateData()
         {
             con.Open();
